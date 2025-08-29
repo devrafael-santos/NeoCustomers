@@ -1,0 +1,15 @@
+package com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository;
+
+import com.raffasdev.neocustomers.infrastructure.persistence.jpa.entity.UserEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+import java.util.UUID;
+
+public interface IUserJpaRepository extends JpaRepository<UserEntity, UUID> {
+    boolean existsByEmail(String email);
+
+    boolean existsByUsername(String username);
+
+    Optional<UserEntity> findByEmail(String email);
+}

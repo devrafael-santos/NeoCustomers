@@ -1,5 +1,6 @@
 package com.raffasdev.neocustomers;
 
+import com.raffasdev.neocustomers.config.EnvInitializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,7 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class NeoCustomersApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NeoCustomersApplication.class, args);
+        var app = new SpringApplication(NeoCustomersApplication.class);
+        app.addInitializers(new EnvInitializer());
+        app.run(args);
     }
 
 }
