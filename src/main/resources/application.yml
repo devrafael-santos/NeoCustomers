@@ -4,3 +4,13 @@ spring:
 
   profiles:
     active: dev
+
+  mvc:
+    servlet:
+      path: /api/v1
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+  port: 8080
