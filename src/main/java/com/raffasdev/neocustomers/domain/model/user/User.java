@@ -10,29 +10,29 @@ import java.util.Set;
 
 public class User extends Entity<EntityId> {
 
-    private final Username username;
+    private final Username name;
     private final Email email;
     private final Set<Role> roles;
     private final String encodedPassword;
 
-    private User(EntityId id, Username username, Email email, Set<Role> roles, String encodedPassword) {
+    private User(EntityId id, Username name, Email email, Set<Role> roles, String encodedPassword) {
         super(id);
-        this.username = username;
+        this.name = name;
         this.email = email;
         this.roles = roles;
         this.encodedPassword = encodedPassword;
     }
 
-    public static User create(EntityId id, Username username, Email email, Set<Role> roles, String encodedPassword) {
-        return new User(id, username, email, roles, encodedPassword);
+    public static User create(EntityId id, Username name, Email email, Set<Role> roles, String encodedPassword) {
+        return new User(id, name, email, roles, encodedPassword);
     }
 
-    public static User reconstitute(EntityId id, Username username, Email email, Set<Role> roles, String encodedPassword) {
-        return new User(id, username, email, roles, encodedPassword);
+    public static User reconstitute(EntityId id, Username name, Email email, Set<Role> roles, String encodedPassword) {
+        return new User(id, name, email, roles, encodedPassword);
     }
 
-    public boolean hasUsername(Username username) {
-        return this.username.equals(username);
+    public boolean hasUsername(Username name) {
+        return this.name.equals(name);
     }
 
     public boolean hasEmail(Email email) {
@@ -43,8 +43,8 @@ public class User extends Entity<EntityId> {
         return this.encodedPassword.equals(encodedPassword);
     }
 
-    public String getUsername() {
-        return this.username.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
 
     public String getEmail() {

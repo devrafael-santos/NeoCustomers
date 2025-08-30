@@ -42,7 +42,7 @@ class UserMapperTest {
 
         assertNotNull(resultEntity);
         assertEquals(id.getValue(), resultEntity.getUserId());
-        assertEquals("username", resultEntity.getUsername());
+        assertEquals("username", resultEntity.getName());
         assertEquals("test@gmail.com", resultEntity.getEmail());
         assertEquals(Set.of(Role.ROLE_ADMIN), resultEntity.getRoles());
         assertEquals("encodedPassword123", resultEntity.getPassword());
@@ -65,7 +65,7 @@ class UserMapperTest {
 
         assertNotNull(resultDomain);
         assertEquals(id, resultDomain.getId().getValue());
-        assertEquals("username", resultDomain.getUsername());
+        assertEquals("username", resultDomain.getName());
         assertEquals("test@gmail.com", resultDomain.getEmail());
         assertEquals(Set.of(Role.ROLE_ADMIN), resultDomain.getRoles());
         assertEquals("encodedPassword123", resultDomain.getEncodedPassword());

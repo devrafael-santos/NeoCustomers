@@ -45,7 +45,7 @@ class UserTest {
         assertNotNull(reconstitutedUser);
         assertEquals(id, reconstitutedUser.getId());
         assertEquals(encodedPassword, reconstitutedUser.getEncodedPassword());
-        assertEquals(user.getUsername(), reconstitutedUser.getUsername());
+        assertEquals(user.getName(), reconstitutedUser.getName());
         assertEquals(user.getEmail(), reconstitutedUser.getEmail());
         assertEquals(user.getRoles(), reconstitutedUser.getRoles());
         assertEquals(user.getEncodedPassword(), reconstitutedUser.getEncodedPassword());
@@ -91,7 +91,7 @@ class UserTest {
     @DisplayName("getters should return the correct primitive values always")
     void getters_returnCorrectPrimitiveValues_Always() {
 
-        assertEquals("test", user.getUsername());
+        assertEquals("test", user.getName());
         assertEquals("test@test.com", user.getEmail());
         assertEquals("encodedPassword123", user.getEncodedPassword());
     }

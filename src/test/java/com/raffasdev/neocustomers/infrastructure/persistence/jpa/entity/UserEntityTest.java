@@ -24,7 +24,7 @@ class UserEntityTest {
 
         assertNotNull(userEntity);
         assertNotNull(userEntity.getUserId());
-        assertEquals("username", userEntity.getUsername());
+        assertEquals("username", userEntity.getName());
         assertEquals("test@gmail.com", userEntity.getEmail());
         assertEquals(Set.of(Role.ROLE_ADMIN), userEntity.getRoles());
         assertEquals("password123", userEntity.getPassword());
@@ -37,7 +37,7 @@ class UserEntityTest {
 
         assertNotNull(userEntity);
         assertNull(userEntity.getUserId());
-        assertNull(userEntity.getUsername());
+        assertNull(userEntity.getName());
         assertNull(userEntity.getEmail());
         assertEquals(0, userEntity.getRoles().size());
         assertNull(userEntity.getPassword());
