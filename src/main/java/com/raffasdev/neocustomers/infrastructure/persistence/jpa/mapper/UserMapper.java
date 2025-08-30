@@ -16,7 +16,7 @@ public final class UserMapper {
 
         return UserEntity.create(
                 user.getId().getValue(),
-                user.getUsername(),
+                user.getName(),
                 user.getEmail(),
                 user.getRoles(),
                 user.getEncodedPassword()
@@ -30,7 +30,7 @@ public final class UserMapper {
         }
         return User.reconstitute(
                 EntityId.of(entity.getUserId()),
-                Username.of(entity.getUsername()),
+                Username.of(entity.getName()),
                 Email.of(entity.getEmail()),
                 entity.getRoles(),
                 entity.getPassword()

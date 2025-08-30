@@ -23,7 +23,7 @@ public class UserEntity implements UserDetails {
     private UUID userId;
 
     @Column(name = "username", nullable = false)
-    private String username;
+    private String name;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -42,7 +42,7 @@ public class UserEntity implements UserDetails {
 
     private UserEntity(UUID userId, String username, String email, Set<Role> roles, String password) {
         this.userId = userId;
-        this.username = username;
+        this.name = username;
         this.email = email;
         this.roles = roles;
         this.password = password;
@@ -57,5 +57,10 @@ public class UserEntity implements UserDetails {
         return this.roles.stream()
                 .map(role -> new SimpleGrantedAuthority(role.name()))
                 .collect(Collectors.toSet());
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
     }
 }
