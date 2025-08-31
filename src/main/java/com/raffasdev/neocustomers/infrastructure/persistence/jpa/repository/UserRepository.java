@@ -31,8 +31,4 @@ public class UserRepository implements IUserRepository {
         return userMapper.toOptionalDomain(jpaRepository.findByEmail(email));
     }
 
-    @Override
-    public boolean existsByUsername(String username) {
-        return jpaRepository.existsByUsername(username);
-    }
 }
