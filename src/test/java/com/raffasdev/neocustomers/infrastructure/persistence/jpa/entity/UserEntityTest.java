@@ -18,7 +18,7 @@ class UserEntityTest {
                 UUID.randomUUID(),
                 "username",
                 "test@gmail.com",
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "password123"
         );
 
@@ -26,7 +26,7 @@ class UserEntityTest {
         assertNotNull(userEntity.getUserId());
         assertEquals("username", userEntity.getName());
         assertEquals("test@gmail.com", userEntity.getEmail());
-        assertEquals(Set.of(Role.ROLE_ADMIN), userEntity.getRoles());
+        assertEquals(Set.of(Role.USER_ADMIN), userEntity.getRoles());
         assertEquals("password123", userEntity.getPassword());
     }
 
@@ -47,7 +47,7 @@ class UserEntityTest {
     @DisplayName("getAuthorities should return an Authority Collection")
     void getAuthorities_returnsAuthorityCollection() {
 
-        var expectedAuthorities = Set.of(Role.ROLE_ADMIN);
+        var expectedAuthorities = Set.of(Role.USER_ADMIN);
 
         var userEntity = UserEntity.create(
                 UUID.randomUUID(),

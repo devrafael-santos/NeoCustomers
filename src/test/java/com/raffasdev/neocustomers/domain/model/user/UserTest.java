@@ -25,7 +25,7 @@ class UserTest {
         Name name = Name.newUsername("test");
         Email email = Email.newEmail("test@test.com");
         encodedPassword = "encodedPassword123";
-        Set<Role> roles = Set.of(Role.ROLE_ADMIN);
+        Set<Role> roles = Set.of(Role.USER_ADMIN);
 
         user = User.create(id, name, email, roles, encodedPassword);
         reconstitutedUser = User.reconstitute(id, name, email, roles, encodedPassword);
@@ -103,7 +103,7 @@ class UserTest {
                 id,
                 Name.newUsername("test"),
                 Email.newEmail("test@test.com"),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
         );
 
@@ -118,7 +118,7 @@ class UserTest {
                 EntityId.newId(),
                 Name.newUsername("anotherUsername"),
                 Email.newEmail("another@email.com"),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
         );
 

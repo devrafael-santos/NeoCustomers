@@ -52,7 +52,7 @@ class AuthServiceTest {
                 EntityId.newId(),
                 Name.newUsername("username"),
                 Email.newEmail("teste@gmail.com"),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
         );
 
@@ -64,7 +64,7 @@ class AuthServiceTest {
         User user = authService.registerUser(
                 "username",
                 "teste@email.com",
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "password");
 
         assertNotNull(user);
@@ -81,7 +81,7 @@ class AuthServiceTest {
                 EntityId.newId(),
                 Name.newUsername("username"),
                 Email.newEmail("teste@gmail.com"),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
         );
 
@@ -90,7 +90,7 @@ class AuthServiceTest {
         assertThrows(EmailAlreadyExistsException.class, () -> authService.registerUser(
                 expectedUser.getName(),
                 expectedUser.getEmail(),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "password")
         );
     }
@@ -107,7 +107,7 @@ class AuthServiceTest {
                 EntityId.newId(),
                 Name.newUsername("username"),
                 Email.newEmail("teste@gmail.com"),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
         );
 
@@ -150,7 +150,7 @@ class AuthServiceTest {
                 EntityId.newId(),
                 Name.newUsername("username"),
                 Email.newEmail("teste@gmail.com"),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
         );
 

@@ -34,7 +34,7 @@ class RolesValidatorTest {
     @DisplayName("isValid should return true when roles are valid")
     void isValid_returnsTrue_whenRolesAreValid() {
 
-        Set<String> validRoles = Set.of("ROLE_ADMIN");
+        Set<String> validRoles = Set.of("USER_ADMIN");
 
         boolean result = validator.isValid(validRoles, contextMock);
 
