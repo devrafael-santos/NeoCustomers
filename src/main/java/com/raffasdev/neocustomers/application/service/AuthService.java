@@ -5,7 +5,7 @@ import com.raffasdev.neocustomers.application.exception.UserNotFoundException;
 import com.raffasdev.neocustomers.application.exception.WrongCredentialsException;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Email;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.EntityId;
-import com.raffasdev.neocustomers.domain.model.shared.valueObject.Username;
+import com.raffasdev.neocustomers.domain.model.shared.valueObject.Name;
 import com.raffasdev.neocustomers.domain.model.user.IAuthService;
 import com.raffasdev.neocustomers.domain.model.user.User;
 import com.raffasdev.neocustomers.domain.model.user.valueObject.Role;
@@ -53,7 +53,7 @@ public class AuthService implements IAuthService {
 
         User user = User.create(
                 entityId,
-                Username.newUsername(username),
+                Name.newUsername(username),
                 Email.newEmail(email),
                 roles,
                 encodedPassword

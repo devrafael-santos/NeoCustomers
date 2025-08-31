@@ -2,7 +2,7 @@ package com.raffasdev.neocustomers.infrastructure.persistence.jpa.mapper;
 
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Email;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.EntityId;
-import com.raffasdev.neocustomers.domain.model.shared.valueObject.Username;
+import com.raffasdev.neocustomers.domain.model.shared.valueObject.Name;
 import com.raffasdev.neocustomers.domain.model.user.User;
 import com.raffasdev.neocustomers.domain.model.user.valueObject.Role;
 import com.raffasdev.neocustomers.infrastructure.persistence.jpa.entity.UserEntity;
@@ -32,7 +32,7 @@ class UserMapperTest {
         var id = EntityId.newId();
         User userDomain = User.create(
                 id,
-                Username.newUsername("username"),
+                Name.newUsername("username"),
                 Email.newEmail("test@gmail.com"),
                 Set.of(Role.ROLE_ADMIN),
                 "encodedPassword123"

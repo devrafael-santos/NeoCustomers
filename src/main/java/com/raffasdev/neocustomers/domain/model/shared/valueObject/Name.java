@@ -4,21 +4,21 @@ import com.raffasdev.neocustomers.domain.model.shared.excpetion.InvalidUsernameE
 
 import java.util.Objects;
 
-public class Username extends ValueObject {
+public class Name extends ValueObject {
 
     private final String username;
 
-    private Username(String username) {
+    private Name(String username) {
         this.username = username;
         validate();
     }
 
-    public static Username newUsername(String username) {
-        return new Username(username);
+    public static Name newUsername(String username) {
+        return new Name(username);
     }
 
-    public static Username of(String username) {
-        return new Username(username);
+    public static Name of(String username) {
+        return new Name(username);
     }
 
     public String getValue() {
@@ -37,8 +37,8 @@ public class Username extends ValueObject {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Username username1 = (Username) o;
-        return Objects.equals(username, username1.username);
+        Name name1 = (Name) o;
+        return Objects.equals(username, name1.username);
     }
 
     @Override
