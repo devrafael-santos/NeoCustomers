@@ -127,30 +127,4 @@ class UserRepositoryTest {
         verify(userMapperMock, times(1)).toOptionalDomain(entityOptional);
     }
 
-    @Test
-    @DisplayName("existsByUsername should return true when username exists")
-    void existsByUsername_returnsTrue_whenUsernameExists() {
-
-        String username = "username";
-        given(jpaRepositoryMock.existsByUsername(username)).willReturn(true);
-
-        boolean result = userRepository.existsByUsername(username);
-
-        assertTrue(result);
-        verify(jpaRepositoryMock, times(1)).existsByUsername(username);
-    }
-
-    @Test
-    @DisplayName("existsByUsername should return false when username does not exists")
-    void existsByUsername_returnsFalse_whenUsernameDoesNotExist() {
-
-        String username = "username";
-        given(jpaRepositoryMock.existsByUsername(username)).willReturn(false);
-
-        boolean result = userRepository.existsByUsername(username);
-
-        assertFalse(result);
-        verify(jpaRepositoryMock, times(1)).existsByUsername(username);
-    }
-
 }

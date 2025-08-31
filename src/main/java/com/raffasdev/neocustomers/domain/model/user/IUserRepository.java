@@ -9,6 +9,4 @@ public interface IUserRepository {
     boolean existsByEmail(String email);
 
     Optional<User> findByEmail(String email);
-
-    boolean existsByUsername(String username);
 }
