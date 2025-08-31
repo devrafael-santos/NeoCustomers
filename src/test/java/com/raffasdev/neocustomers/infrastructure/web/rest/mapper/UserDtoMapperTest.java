@@ -30,7 +30,7 @@ class UserDtoMapperTest {
                 EntityId.newId(),
                 Name.newUsername("name"),
                 Email.newEmail("teste@email.com"),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
         );
 
@@ -48,8 +48,8 @@ class UserDtoMapperTest {
     @DisplayName("toEnumRoles maps a Set of String to a Set Role when successful")
     void toEnumRoles_MapsASetOfStringToASetRole_WhenSuccessful() {
 
-        var stringRoles = Set.of("ROLE_ADMIN");
-        var expectedRoles = Set.of(Role.ROLE_ADMIN);
+        var stringRoles = Set.of("USER_ADMIN");
+        var expectedRoles = Set.of(Role.USER_ADMIN);
 
         var response = userDtoMapper.toEnumRoles(stringRoles);
 

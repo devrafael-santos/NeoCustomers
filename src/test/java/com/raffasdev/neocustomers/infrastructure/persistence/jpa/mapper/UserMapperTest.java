@@ -34,7 +34,7 @@ class UserMapperTest {
                 id,
                 Name.newUsername("username"),
                 Email.newEmail("test@gmail.com"),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
         );
 
@@ -44,7 +44,7 @@ class UserMapperTest {
         assertEquals(id.getValue(), resultEntity.getUserId());
         assertEquals("username", resultEntity.getName());
         assertEquals("test@gmail.com", resultEntity.getEmail());
-        assertEquals(Set.of(Role.ROLE_ADMIN), resultEntity.getRoles());
+        assertEquals(Set.of(Role.USER_ADMIN), resultEntity.getRoles());
         assertEquals("encodedPassword123", resultEntity.getPassword());
     }
 
@@ -57,7 +57,7 @@ class UserMapperTest {
                 id,
                 "username",
                 "test@gmail.com",
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
         );
 
@@ -67,7 +67,7 @@ class UserMapperTest {
         assertEquals(id, resultDomain.getId().getValue());
         assertEquals("username", resultDomain.getName());
         assertEquals("test@gmail.com", resultDomain.getEmail());
-        assertEquals(Set.of(Role.ROLE_ADMIN), resultDomain.getRoles());
+        assertEquals(Set.of(Role.USER_ADMIN), resultDomain.getRoles());
         assertEquals("encodedPassword123", resultDomain.getEncodedPassword());
     }
 
@@ -88,7 +88,7 @@ class UserMapperTest {
                 UUID.randomUUID(),
                 "username",
                 "test@gmail.com",
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
         ));
 

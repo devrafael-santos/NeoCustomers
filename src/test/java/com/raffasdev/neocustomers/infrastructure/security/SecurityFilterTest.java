@@ -56,7 +56,7 @@ class SecurityFilterTest {
                 UUID.randomUUID(),
                 "username",
                 "teste@email.com",
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
         );
 

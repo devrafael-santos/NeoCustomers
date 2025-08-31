@@ -44,7 +44,7 @@ class UserRepositoryTest {
                 id,
                 Name.newUsername("username"),
                 Email.newEmail("test@email.com"),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword"
         );
 
@@ -55,7 +55,7 @@ class UserRepositoryTest {
                 id,
                 Name.newUsername("username"),
                 Email.newEmail("test@email.com"),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword"
         );
 
@@ -109,7 +109,7 @@ class UserRepositoryTest {
                 EntityId.newId(),
                 Name.newUsername("username"),
                 Email.newEmail(email),
-                Set.of(Role.ROLE_ADMIN),
+                Set.of(Role.USER_ADMIN),
                 "encodedPassword"
         ));
 
