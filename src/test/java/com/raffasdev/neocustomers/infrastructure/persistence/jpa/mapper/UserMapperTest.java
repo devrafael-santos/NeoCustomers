@@ -32,7 +32,7 @@ class UserMapperTest {
         var id = EntityId.newId();
         User userDomain = User.create(
                 id,
-                Name.newUsername("username"),
+                Name.newName("username"),
                 Email.newEmail("test@gmail.com"),
                 Set.of(Role.USER_ADMIN),
                 "encodedPassword123"

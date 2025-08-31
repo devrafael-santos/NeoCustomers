@@ -1,4 +1,4 @@
-package com.raffasdev.neocustomers.domain.model.shared.excpetion;
+package com.raffasdev.neocustomers.domain.exception;
 
 public class InvalidEmailException extends RuntimeException {
     public InvalidEmailException(String email) {

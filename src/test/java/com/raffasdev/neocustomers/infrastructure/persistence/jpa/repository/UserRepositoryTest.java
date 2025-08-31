@@ -42,7 +42,7 @@ class UserRepositoryTest {
 
         User userToSave = User.create(
                 id,
-                Name.newUsername("username"),
+                Name.newName("username"),
                 Email.newEmail("test@email.com"),
                 Set.of(Role.USER_ADMIN),
                 "encodedPassword"
@@ -53,7 +53,7 @@ class UserRepositoryTest {
 
         User expectedSavedUser = User.reconstitute(
                 id,
-                Name.newUsername("username"),
+                Name.newName("username"),
                 Email.newEmail("test@email.com"),
                 Set.of(Role.USER_ADMIN),
                 "encodedPassword"
@@ -107,7 +107,7 @@ class UserRepositoryTest {
 
         var expectedUserOptional = Optional.of(User.create(
                 EntityId.newId(),
-                Name.newUsername("username"),
+                Name.newName("username"),
                 Email.newEmail(email),
                 Set.of(Role.USER_ADMIN),
                 "encodedPassword"

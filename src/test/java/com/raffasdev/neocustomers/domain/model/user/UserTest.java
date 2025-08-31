@@ -22,7 +22,7 @@ class UserTest {
     @BeforeEach
     void setUp() {
         id = EntityId.newId();
-        Name name = Name.newUsername("test");
+        Name name = Name.newName("test");
         Email email = Email.newEmail("test@test.com");
         encodedPassword = "encodedPassword123";
         Set<Role> roles = Set.of(Role.USER_ADMIN);
@@ -54,13 +54,13 @@ class UserTest {
     @Test
     @DisplayName("hasUsername should return true when username match")
     void hasUsername_returnsTrue_WhenUsernameMatches() {
-        assertTrue(user.hasUsername(Name.newUsername("test")));
+        assertTrue(user.hasUsername(Name.newName("test")));
     }
 
     @Test
     @DisplayName("hasUsername should return false when username does not match")
     void hasUsername_returnsFalse_WhenUsernameDoesNotMatch() {
-        assertFalse(user.hasUsername(Name.newUsername("anotherUsername")));
+        assertFalse(user.hasUsername(Name.newName("anotherUsername")));
     }
 
     @Test
@@ -101,7 +101,7 @@ class UserTest {
     void equals_ReturnsTrue_WhenUserObjectsAreEqual() {
         User anotherUser = User.create(
                 id,
-                Name.newUsername("test"),
+                Name.newName("test"),
                 Email.newEmail("test@test.com"),
                 Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
@@ -116,7 +116,7 @@ class UserTest {
     void equals_ReturnsFalse_WhenUserObjectsAreNotEqual() {
         User anotherUser = User.create(
                 EntityId.newId(),
-                Name.newUsername("anotherUsername"),
+                Name.newName("anotherUsername"),
                 Email.newEmail("another@email.com"),
                 Set.of(Role.USER_ADMIN),
                 "encodedPassword123"

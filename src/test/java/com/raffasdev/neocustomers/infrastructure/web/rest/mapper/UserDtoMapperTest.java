@@ -28,7 +28,7 @@ class UserDtoMapperTest {
     void toRegisterUserResponse_MapsUserToRegisterUserResponse_WhenSuccessful() {
         User user = User.create(
                 EntityId.newId(),
-                Name.newUsername("name"),
+                Name.newName("name"),
                 Email.newEmail("teste@email.com"),
                 Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
