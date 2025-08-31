@@ -1,4 +1,4 @@
-package com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository;
+package com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.user;
 
 import com.raffasdev.neocustomers.infrastructure.persistence.jpa.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

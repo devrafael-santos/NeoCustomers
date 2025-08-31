@@ -2,7 +2,7 @@ package com.raffasdev.neocustomers.infrastructure.security;
 
 import com.raffasdev.neocustomers.domain.model.user.valueObject.Role;
 import com.raffasdev.neocustomers.infrastructure.persistence.jpa.entity.UserEntity;
-import com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.IUserJpaRepository;
+import com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.user.IUserJpaRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

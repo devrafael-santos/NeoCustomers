@@ -54,13 +54,13 @@ class UserTest {
     @Test
     @DisplayName("hasUsername should return true when username match")
     void hasUsername_returnsTrue_WhenUsernameMatches() {
-        assertTrue(user.hasUsername(Name.newName("test")));
+        assertTrue(user.hasName(Name.newName("test")));
     }
 
     @Test
     @DisplayName("hasUsername should return false when username does not match")
     void hasUsername_returnsFalse_WhenUsernameDoesNotMatch() {
-        assertFalse(user.hasUsername(Name.newName("anotherUsername")));
+        assertFalse(user.hasName(Name.newName("anotherUsername")));
     }
 
     @Test

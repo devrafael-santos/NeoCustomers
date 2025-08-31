@@ -2,7 +2,7 @@ package com.raffasdev.neocustomers.infrastructure.security;
 
 import com.raffasdev.neocustomers.domain.model.user.valueObject.Role;
 import com.raffasdev.neocustomers.infrastructure.persistence.jpa.entity.UserEntity;
-import com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.IUserJpaRepository;
+import com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.user.IUserJpaRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
