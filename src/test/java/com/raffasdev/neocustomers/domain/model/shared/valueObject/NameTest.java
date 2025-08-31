@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class UsernameTest {
+class NameTest {
 
     @Test
     @DisplayName("of should return Username when valid username is provided")
@@ -17,17 +17,17 @@ class UsernameTest {
 
         var validUsername = "username";
 
-        Username username = assertDoesNotThrow(() -> Username.of(validUsername));
+        Name name = assertDoesNotThrow(() -> Name.of(validUsername));
 
-        assertNotNull(username);
-        assertEquals(validUsername, username.getValue());
+        assertNotNull(name);
+        assertEquals(validUsername, name.getValue());
     }
 
     @Test
     @DisplayName("newUsername should create Username when valid value is provided")
     void newUsername_CreatesUsername_WhenValidValueIsProvided() {
 
-        var result = assertDoesNotThrow(() -> Username.newUsername("test"));
+        var result = assertDoesNotThrow(() -> Name.newUsername("test"));
 
         assertEquals("test", result.getValue());
     }
@@ -37,38 +37,38 @@ class UsernameTest {
     @ValueSource(strings = {" ", "a", "usernameTooooLong"})
     @DisplayName("newUsername should throw InvalidUsernameException when invalid values are provided")
     void newUsername_ThrowsInvalidUsernameException_WhenInvalidValuesAreProvided(String invalidUsername) {
-        assertThrows(InvalidUsernameException.class, () -> Username.newUsername(invalidUsername));
+        assertThrows(InvalidUsernameException.class, () -> Name.newUsername(invalidUsername));
     }
 
     @Test
     @DisplayName("equals should return true when usernames are equals")
     void equals_returnsTrue_WhenUsernamesAreEqual() {
 
-        Username username1 = Username.newUsername("test1");
-        Username username2 = Username.newUsername("test1");
+        Name name1 = Name.newUsername("test1");
+        Name name2 = Name.newUsername("test1");
 
-        assertEquals(username1, username2);
-        assertEquals(username1.hashCode(), username2.hashCode());
+        assertEquals(name1, name2);
+        assertEquals(name1.hashCode(), name2.hashCode());
     }
 
     @Test
     @DisplayName("equals should return false when usernames are not equals")
     void equals_returnsFalse_WhenUsernamesAreNotEqual() {
 
-        Username username1 = Username.newUsername("test1");
-        Username username2 = Username.newUsername("test2");
+        Name name1 = Name.newUsername("test1");
+        Name name2 = Name.newUsername("test2");
 
-        assertNotEquals(username1, username2);
-        assertNotEquals(username1.hashCode(), username2.hashCode());
+        assertNotEquals(name1, name2);
+        assertNotEquals(name1.hashCode(), name2.hashCode());
     }
 
     @Test
     @DisplayName("getValue should return the username value")
     void getValue_returnsTheUsernameValue() {
         String expectedUsername = "test";
-        Username username = Username.newUsername(expectedUsername);
+        Name name = Name.newUsername(expectedUsername);
 
-        String actualUsername = username.getValue();
+        String actualUsername = name.getValue();
 
         assertEquals(expectedUsername, actualUsername);
     }

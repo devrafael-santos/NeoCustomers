@@ -2,7 +2,7 @@ package com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository;
 
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Email;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.EntityId;
-import com.raffasdev.neocustomers.domain.model.shared.valueObject.Username;
+import com.raffasdev.neocustomers.domain.model.shared.valueObject.Name;
 import com.raffasdev.neocustomers.domain.model.user.User;
 import com.raffasdev.neocustomers.domain.model.user.valueObject.Role;
 import com.raffasdev.neocustomers.infrastructure.persistence.jpa.entity.UserEntity;
@@ -42,7 +42,7 @@ class UserRepositoryTest {
 
         User userToSave = User.create(
                 id,
-                Username.newUsername("username"),
+                Name.newUsername("username"),
                 Email.newEmail("test@email.com"),
                 Set.of(Role.ROLE_ADMIN),
                 "encodedPassword"
@@ -53,7 +53,7 @@ class UserRepositoryTest {
 
         User expectedSavedUser = User.reconstitute(
                 id,
-                Username.newUsername("username"),
+                Name.newUsername("username"),
                 Email.newEmail("test@email.com"),
                 Set.of(Role.ROLE_ADMIN),
                 "encodedPassword"
@@ -107,7 +107,7 @@ class UserRepositoryTest {
 
         var expectedUserOptional = Optional.of(User.create(
                 EntityId.newId(),
-                Username.newUsername("username"),
+                Name.newUsername("username"),
                 Email.newEmail(email),
                 Set.of(Role.ROLE_ADMIN),
                 "encodedPassword"

@@ -2,7 +2,7 @@ package com.raffasdev.neocustomers.infrastructure.persistence.jpa.mapper;
 
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Email;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.EntityId;
-import com.raffasdev.neocustomers.domain.model.shared.valueObject.Username;
+import com.raffasdev.neocustomers.domain.model.shared.valueObject.Name;
 import com.raffasdev.neocustomers.domain.model.user.User;
 import com.raffasdev.neocustomers.infrastructure.persistence.jpa.entity.UserEntity;
 import org.springframework.stereotype.Component;
@@ -30,7 +30,7 @@ public final class UserMapper {
         }
         return User.reconstitute(
                 EntityId.of(entity.getUserId()),
-                Username.of(entity.getName()),
+                Name.of(entity.getName()),
                 Email.of(entity.getEmail()),
                 entity.getRoles(),
                 entity.getPassword()

@@ -3,19 +3,19 @@ package com.raffasdev.neocustomers.domain.model.user;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Email;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Entity;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.EntityId;
-import com.raffasdev.neocustomers.domain.model.shared.valueObject.Username;
+import com.raffasdev.neocustomers.domain.model.shared.valueObject.Name;
 import com.raffasdev.neocustomers.domain.model.user.valueObject.Role;
 
 import java.util.Set;
 
 public class User extends Entity<EntityId> {
 
-    private final Username name;
+    private final Name name;
     private final Email email;
     private final Set<Role> roles;
     private final String encodedPassword;
 
-    private User(EntityId id, Username name, Email email, Set<Role> roles, String encodedPassword) {
+    private User(EntityId id, Name name, Email email, Set<Role> roles, String encodedPassword) {
         super(id);
         this.name = name;
         this.email = email;
@@ -23,15 +23,15 @@ public class User extends Entity<EntityId> {
         this.encodedPassword = encodedPassword;
     }
 
-    public static User create(EntityId id, Username name, Email email, Set<Role> roles, String encodedPassword) {
+    public static User create(EntityId id, Name name, Email email, Set<Role> roles, String encodedPassword) {
         return new User(id, name, email, roles, encodedPassword);
     }
 
-    public static User reconstitute(EntityId id, Username name, Email email, Set<Role> roles, String encodedPassword) {
+    public static User reconstitute(EntityId id, Name name, Email email, Set<Role> roles, String encodedPassword) {
         return new User(id, name, email, roles, encodedPassword);
     }
 
-    public boolean hasUsername(Username name) {
+    public boolean hasUsername(Name name) {
         return this.name.equals(name);
     }
 
