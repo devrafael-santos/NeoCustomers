@@ -8,7 +8,7 @@ import com.raffasdev.neocustomers.domain.model.shared.valueObject.EntityId;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Name;
 import com.raffasdev.neocustomers.domain.model.user.User;
 import com.raffasdev.neocustomers.domain.model.user.valueObject.Role;
-import com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.UserRepository;
+import com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.user.UserRepository;
 import com.raffasdev.neocustomers.infrastructure.security.TokenService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
