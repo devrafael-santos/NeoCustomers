@@ -31,7 +31,7 @@ public class UserEntity implements UserDetails {
     @Enumerated(EnumType.STRING)
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
-    @Column(name = "role", nullable = false)
+    @Column(name = "roles", nullable = false)
     private Set<Role> roles = new HashSet<>();
 
     @Column(nullable = false)
