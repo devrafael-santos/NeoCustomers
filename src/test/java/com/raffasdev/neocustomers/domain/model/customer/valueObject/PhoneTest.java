@@ -1,7 +1,6 @@
-package com.raffasdev.neocustomers.domain.model.customer;
+package com.raffasdev.neocustomers.domain.model.customer.valueObject;
 
 import com.raffasdev.neocustomers.domain.exception.InvalidPhoneException;
-import com.raffasdev.neocustomers.domain.model.customer.valueObject.Phone;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

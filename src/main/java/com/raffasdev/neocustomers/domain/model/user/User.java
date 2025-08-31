@@ -31,7 +31,7 @@ public class User extends Entity<EntityId> {
         return new User(id, name, email, roles, encodedPassword);
     }
 
-    public boolean hasUsername(Name name) {
+    public boolean hasName(Name name) {
         return this.name.equals(name);
     }
 
