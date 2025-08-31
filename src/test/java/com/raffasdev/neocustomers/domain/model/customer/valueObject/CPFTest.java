@@ -1,6 +1,7 @@
 package com.raffasdev.neocustomers.domain.model.customer;
 
 import com.raffasdev.neocustomers.domain.exception.InvalidCPFException;
+import com.raffasdev.neocustomers.domain.model.customer.valueObject.CPF;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
