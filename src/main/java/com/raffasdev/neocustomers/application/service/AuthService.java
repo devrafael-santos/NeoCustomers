@@ -53,7 +53,7 @@ public class AuthService implements IAuthService {
 
         User user = User.create(
                 entityId,
-                Name.newUsername(username),
+                Name.newName(username),
                 Email.newEmail(email),
                 roles,
                 encodedPassword

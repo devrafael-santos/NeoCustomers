@@ -1,6 +1,6 @@
 package com.raffasdev.neocustomers.domain.model.shared.valueObject;
 
-import com.raffasdev.neocustomers.domain.model.shared.excpetion.InvalidEmailException;
+import com.raffasdev.neocustomers.domain.exception.InvalidEmailException;
 
 import java.util.Objects;
 import java.util.regex.Pattern;

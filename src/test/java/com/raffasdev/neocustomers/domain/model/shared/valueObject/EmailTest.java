@@ -1,6 +1,6 @@
 package com.raffasdev.neocustomers.domain.model.shared.valueObject;
 
-import com.raffasdev.neocustomers.domain.model.shared.excpetion.InvalidEmailException;
+import com.raffasdev.neocustomers.domain.exception.InvalidEmailException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,7 +15,7 @@ class EmailTest {
 
     @Test
     @DisplayName("of should return Email when valid email is provided")
-    void of_ReturnsUsername_WhenValidEmailIsProvided() {
+    void of_ReturnsEmail_WhenValidEmailIsProvided() {
 
         Email email = assertDoesNotThrow(() -> Email.of(validEmail));
 

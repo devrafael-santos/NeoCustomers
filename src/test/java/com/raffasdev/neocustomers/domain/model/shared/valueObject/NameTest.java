@@ -1,6 +1,6 @@
 package com.raffasdev.neocustomers.domain.model.shared.valueObject;
 
-import com.raffasdev.neocustomers.domain.model.shared.excpetion.InvalidUsernameException;
+import com.raffasdev.neocustomers.domain.exception.InvalidUsernameException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,22 +12,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class NameTest {
 
     @Test
-    @DisplayName("of should return Username when valid username is provided")
-    void of_ReturnsUsername_WhenValidUsernameIsProvided() {
+    @DisplayName("of should return Name when valid username is provided")
+    void of_ReturnsName_WhenValidUsernameIsProvided() {
 
-        var validUsername = "username";
+        var validName = "username";
 
-        Name name = assertDoesNotThrow(() -> Name.of(validUsername));
+        Name name = assertDoesNotThrow(() -> Name.of(validName));
 
         assertNotNull(name);
-        assertEquals(validUsername, name.getValue());
+        assertEquals(validName, name.getValue());
     }
 
     @Test
-    @DisplayName("newUsername should create Username when valid value is provided")
-    void newUsername_CreatesUsername_WhenValidValueIsProvided() {
+    @DisplayName("newName should create Name when valid value is provided")
+    void newName_CreatesName_WhenValidValueIsProvided() {
 
-        var result = assertDoesNotThrow(() -> Name.newUsername("test"));
+        var result = assertDoesNotThrow(() -> Name.newName("test"));
 
         assertEquals("test", result.getValue());
     }
@@ -37,15 +37,15 @@ class NameTest {
     @ValueSource(strings = {" ", "a", "usernameTooooLong"})
     @DisplayName("newUsername should throw InvalidUsernameException when invalid values are provided")
     void newUsername_ThrowsInvalidUsernameException_WhenInvalidValuesAreProvided(String invalidUsername) {
-        assertThrows(InvalidUsernameException.class, () -> Name.newUsername(invalidUsername));
+        assertThrows(InvalidUsernameException.class, () -> Name.newName(invalidUsername));
     }
 
     @Test
     @DisplayName("equals should return true when usernames are equals")
     void equals_returnsTrue_WhenUsernamesAreEqual() {
 
-        Name name1 = Name.newUsername("test1");
-        Name name2 = Name.newUsername("test1");
+        Name name1 = Name.newName("test1");
+        Name name2 = Name.newName("test1");
 
         assertEquals(name1, name2);
         assertEquals(name1.hashCode(), name2.hashCode());
@@ -55,8 +55,8 @@ class NameTest {
     @DisplayName("equals should return false when usernames are not equals")
     void equals_returnsFalse_WhenUsernamesAreNotEqual() {
 
-        Name name1 = Name.newUsername("test1");
-        Name name2 = Name.newUsername("test2");
+        Name name1 = Name.newName("test1");
+        Name name2 = Name.newName("test2");
 
         assertNotEquals(name1, name2);
         assertNotEquals(name1.hashCode(), name2.hashCode());
@@ -66,7 +66,7 @@ class NameTest {
     @DisplayName("getValue should return the username value")
     void getValue_returnsTheUsernameValue() {
         String expectedUsername = "test";
-        Name name = Name.newUsername(expectedUsername);
+        Name name = Name.newName(expectedUsername);
 
         String actualUsername = name.getValue();
 

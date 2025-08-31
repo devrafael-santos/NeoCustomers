@@ -50,7 +50,7 @@ class AuthServiceTest {
 
         var expectedUser = User.create(
                 EntityId.newId(),
-                Name.newUsername("username"),
+                Name.newName("username"),
                 Email.newEmail("teste@gmail.com"),
                 Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
@@ -79,7 +79,7 @@ class AuthServiceTest {
 
         var expectedUser = User.create(
                 EntityId.newId(),
-                Name.newUsername("username"),
+                Name.newName("username"),
                 Email.newEmail("teste@gmail.com"),
                 Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
@@ -105,7 +105,7 @@ class AuthServiceTest {
 
         User foundUser = User.create(
                 EntityId.newId(),
-                Name.newUsername("username"),
+                Name.newName("username"),
                 Email.newEmail("teste@gmail.com"),
                 Set.of(Role.USER_ADMIN),
                 "encodedPassword123"
@@ -148,7 +148,7 @@ class AuthServiceTest {
 
         User foundUser = User.create(
                 EntityId.newId(),
-                Name.newUsername("username"),
+                Name.newName("username"),
                 Email.newEmail("teste@gmail.com"),
                 Set.of(Role.USER_ADMIN),
                 "encodedPassword123"

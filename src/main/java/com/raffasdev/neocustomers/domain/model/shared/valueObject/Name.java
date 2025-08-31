@@ -1,36 +1,36 @@
 package com.raffasdev.neocustomers.domain.model.shared.valueObject;
 
-import com.raffasdev.neocustomers.domain.model.shared.excpetion.InvalidUsernameException;
+import com.raffasdev.neocustomers.domain.exception.InvalidUsernameException;
 
 import java.util.Objects;
 
 public class Name extends ValueObject {
 
-    private final String username;
+    private final String name;
 
-    private Name(String username) {
-        this.username = username;
+    private Name(String name) {
+        this.name = name;
         validate();
     }
 
-    public static Name newUsername(String username) {
-        return new Name(username);
+    public static Name newName(String name) {
+        return new Name(name);
     }
 
-    public static Name of(String username) {
-        return new Name(username);
+    public static Name of(String name) {
+        return new Name(name);
     }
 
     public String getValue() {
-        return this.username;
+        return this.name;
     }
 
     private void validate() {
-        if (username == null || username.isEmpty()) {
-            throw new InvalidUsernameException(username);
+        if (name == null || name.isEmpty()) {
+            throw new InvalidUsernameException(name);
         }
-        if (username.length() < 2 || username.length() > 15) {
-            throw new InvalidUsernameException(username);
+        if (name.length() < 2 || name.length() > 15) {
+            throw new InvalidUsernameException(name);
         }
     }
 
@@ -38,11 +38,11 @@ public class Name extends ValueObject {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Name name1 = (Name) o;
-        return Objects.equals(username, name1.username);
+        return Objects.equals(name, name1.name);
     }
 
     @Override
     public int hashCode() {
-        return 31 * (username != null ? username.hashCode() : 0);
+        return 31 * (name != null ? name.hashCode() : 0);
     }
 }

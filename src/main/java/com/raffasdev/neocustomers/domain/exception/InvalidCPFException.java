@@ -1,0 +1,7 @@
+package com.raffasdev.neocustomers.domain.exception;
+
+public class InvalidCPFException extends RuntimeException {
+    public InvalidCPFException(String cpf) {
+        super("Invalid CPF number: " + cpf);
+    }
+}
