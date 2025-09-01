@@ -8,5 +8,5 @@ public interface IAuthService {
 
     String loginUser(String email, String password);
 
-    User registerUser(String username, String email, Set<Role> roles, String password);
+    User registerUser(String name, String email, Set<Role> roles, String password);
 }

@@ -6,10 +6,12 @@ import com.raffasdev.neocustomers.infrastructure.persistence.jpa.mapper.Customer
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 import java.util.UUID;
 
+@Repository
 @AllArgsConstructor
 public class CustomerRepository implements ICustomerRepository {
 
@@ -42,9 +44,13 @@ public class CustomerRepository implements ICustomerRepository {
     }
 
     @Override
-    public void updateById(UUID id, Customer customer) {
+    public boolean existsByEmail(String email) {
+        return customerJpaRepository.existsByEmail(email);
+    }
 
-        customerJpaRepository.updateCustomerByCustomerId(id, customer);
+    @Override
+    public boolean existsByCpf(String cpf) {
+        return customerJpaRepository.existsByCpf(cpf);
     }
 
     @Override
