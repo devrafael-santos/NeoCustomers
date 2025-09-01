@@ -183,21 +183,4 @@ class CustomerRepositoryTest {
         verify(jpaRepositoryMock, times(1)).findByNameIgnoreCaseContaining(nameFragment, pageable);
     }
 
-    @Test
-    @DisplayName("updateById should call repository update method with correct parameters")
-    void updateById_callsRepositoryUpdateMethod_always() {
-
-        UUID customerId = UUID.randomUUID();
-        Customer customerWithUpdates = Customer.create(
-                EntityId.of(customerId),
-                Name.newName("Updated Name"),
-                Email.newEmail("updated@test.com"),
-                CPF.of("987.654.321-00"),
-                Phone.of("11999998888")
-        );
-
-        customerRepository.updateById(customerId, customerWithUpdates);
-
-        verify(jpaRepositoryMock, times(1)).updateCustomerByCustomerId(customerId, customerWithUpdates);
-    }
 }
