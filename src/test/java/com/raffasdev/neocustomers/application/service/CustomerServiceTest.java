@@ -42,7 +42,7 @@ class CustomerServiceTest {
     private CustomerRepository customerRepositoryMock;
 
     @InjectMocks
-    private CustomerService customerService;
+    private CustomerApplicationService customerService;
 
     private Customer customer;
 

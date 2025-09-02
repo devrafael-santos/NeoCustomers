@@ -23,7 +23,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class CustomerService implements ICustomerService {
+public class CustomerApplicationService implements ICustomerService {
 
     private final CustomerRepository customerRepository;
 
