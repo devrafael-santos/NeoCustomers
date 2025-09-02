@@ -3,3 +3,14 @@ spring:
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+  jwt:
+    secret:
+      key: ${JWT_SECRET_KEY}
+    expiration:
+      minutes: ${JWT_EXPIRATION_MINUTES}
