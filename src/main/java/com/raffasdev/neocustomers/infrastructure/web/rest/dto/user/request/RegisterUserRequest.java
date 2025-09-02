@@ -1,4 +1,4 @@
-package com.raffasdev.neocustomers.infrastructure.web.rest.dto.request;
+package com.raffasdev.neocustomers.infrastructure.web.rest.dto.user.request;
 
 import com.raffasdev.neocustomers.domain.model.user.valueObject.Role;
 import com.raffasdev.neocustomers.infrastructure.web.rest.validators.password.PasswordsMatch;
@@ -22,7 +22,7 @@ public class RegisterUserRequest {
     private String name;
 
     @NotBlank(message = "Email cannot be blank")
-    @Email
+    @Email(message = "Invalid email format")
     private String email;
 
     @NotEmpty(message = "User must have at leas one role")

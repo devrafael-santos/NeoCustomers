@@ -4,6 +4,7 @@ import com.raffasdev.neocustomers.application.exception.CPFAlreadyExistsExceptio
 import com.raffasdev.neocustomers.application.exception.CustomerNotFoundException;
 import com.raffasdev.neocustomers.application.exception.EmailAlreadyExistsException;
 import com.raffasdev.neocustomers.domain.model.customer.Customer;
+import com.raffasdev.neocustomers.domain.model.customer.valueObject.BirthDate;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.CPF;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.Phone;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Email;
@@ -21,6 +22,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -51,7 +53,8 @@ class CustomerServiceTest {
                 Name.newName("username"),
                 Email.newEmail("teste@email.com"),
                 CPF.newCPF("111.222.333-44"),
-                Phone.newPhone("11911112222")
+                Phone.newPhone("11911112222"),
+                BirthDate.newBirthDate(LocalDate.now().minusYears(20))
         );
     }
 
@@ -67,7 +70,8 @@ class CustomerServiceTest {
                 "username",
                 "teste@email.com",
                 "111.222.333-44",
-                "11911112222"
+                "11911112222",
+                LocalDate.now().minusYears(20)
         );
 
         assertThat(savedCustomer).isNotNull();
@@ -83,7 +87,10 @@ class CustomerServiceTest {
         given(customerRepositoryMock.existsByEmail(email)).willReturn(true);
 
         assertThatThrownBy(() -> customerService.save(
-                "username", email, "111.222.333-44", "11911112222"))
+                "username", email,
+                "111.222.333-44",
+                "11911112222",
+                LocalDate.now().minusYears(20)))
                 .isInstanceOf(EmailAlreadyExistsException.class);
 
         verify(customerRepositoryMock, never()).save(any(Customer.class));
@@ -98,7 +105,11 @@ class CustomerServiceTest {
         given(customerRepositoryMock.existsByCpf(cpf)).willReturn(true);
 
         assertThatThrownBy(() -> customerService.save(
-                "username", "teste@email.com", cpf, "11911112222"))
+                "username",
+                "teste@email.com",
+                cpf,
+                "11911112222",
+                LocalDate.now().minusYears(20)))
                 .isInstanceOf(CPFAlreadyExistsException.class);
 
         verify(customerRepositoryMock, never()).save(any(Customer.class));
@@ -180,12 +191,13 @@ class CustomerServiceTest {
         String newName = "newUsername";
         String newEmail = "new_teste@teste.com";
         String newPhone = "11933334444";
+        LocalDate newBirthDate = LocalDate.now().minusYears(20);
 
         given(customerRepositoryMock.findById(customerId)).willReturn(Optional.of(customer));
         given(customerRepositoryMock.existsByEmail(newEmail)).willReturn(false);
         given(customerRepositoryMock.save(any(Customer.class))).willReturn(customer);
 
-        customerService.updateById(customerId, newName, newEmail, newPhone);
+        customerService.updateById(customerId, newName, newEmail, newPhone, newBirthDate);
 
         verify(customerRepositoryMock, times(1))
                 .save(any(Customer.class));
@@ -200,7 +212,10 @@ class CustomerServiceTest {
         given(customerRepositoryMock.findById(nonExistentId)).willReturn(Optional.empty());
 
         assertThatThrownBy(() -> customerService.updateById(nonExistentId,
-                "username", "teste@email.com", "11911112222"))
+                "username",
+                "teste@email.com",
+                "11911112222",
+                LocalDate.now().minusYears(20)))
                 .isInstanceOf(CustomerNotFoundException.class);
 
         verify(customerRepositoryMock, never()).save(any());
@@ -215,7 +230,10 @@ class CustomerServiceTest {
         given(customerRepositoryMock.existsByEmail(newEmail)).willReturn(true);
 
         assertThatThrownBy(() -> customerService.updateById(customer.getId().getValue(),
-                "username", newEmail, "11911112222"))
+                "username",
+                newEmail,
+                "11911112222",
+                LocalDate.now().minusYears(20)))
                 .isInstanceOf(EmailAlreadyExistsException.class);
 
         verify(customerRepositoryMock, never()).save(any());

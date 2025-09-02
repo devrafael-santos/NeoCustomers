@@ -1,6 +1,7 @@
 package com.raffasdev.neocustomers.infrastructure.persistence.jpa.mapper;
 
 import com.raffasdev.neocustomers.domain.model.customer.Customer;
+import com.raffasdev.neocustomers.domain.model.customer.valueObject.BirthDate;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.CPF;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.Phone;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Email;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -36,7 +38,8 @@ class CustomerMapperTest {
                 Name.newName("Username"),
                 Email.newEmail("teste@email.com"),
                 CPF.of("123.456.789-00"),
-                Phone.of("11987654321")
+                Phone.of("11987654321"),
+                BirthDate.of(LocalDate.now().minusYears(20))
         );
 
         CustomerEntity resultEntity = customerMapper.toEntity(customerDomain);
@@ -59,7 +62,8 @@ class CustomerMapperTest {
                 "Username",
                 "teste@email.com",
                 "123.456.789-00",
-                "11987654321"
+                "11987654321",
+                LocalDate.now().minusYears(20)
         );
 
         Customer resultDomain = customerMapper.toDomain(customerEntity);
@@ -88,7 +92,8 @@ class CustomerMapperTest {
                 "Username",
                 "teste@email.com",
                 "123.456.789-00",
-                "11987654321"
+                "11987654321",
+                LocalDate.now().minusYears(20)
         );
         var optionalEntity = Optional.of(customerEntity);
 

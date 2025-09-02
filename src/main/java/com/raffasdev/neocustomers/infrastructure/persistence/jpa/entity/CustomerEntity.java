@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -29,18 +30,24 @@ public class CustomerEntity {
     @Column(name = "phone", nullable = false)
     private String phone;
 
+    @Column(name = "birth_date", nullable = false)
+    private LocalDate birthDate;
+
     public CustomerEntity() {
     }
 
-    private CustomerEntity(UUID customerId, String name, String email, String cpf, String phone) {
+    private CustomerEntity(UUID customerId, String name, String email, String cpf, String phone,
+                           LocalDate birthDate) {
         this.customerId = customerId;
         this.name = name;
         this.email = email;
         this.cpf = cpf;
         this.phone = phone;
+        this.birthDate = birthDate;
     }
 
-    public static CustomerEntity create(UUID customerId, String name, String email, String cpf, String phone) {
-        return new CustomerEntity(customerId, name, email, cpf, phone);
+    public static CustomerEntity create(UUID customerId, String name, String email, String cpf, String phone,
+                                        LocalDate birthDate) {
+        return new CustomerEntity(customerId, name, email, cpf, phone, birthDate);
     }
 }

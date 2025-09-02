@@ -5,7 +5,7 @@ import com.raffasdev.neocustomers.domain.model.shared.valueObject.EntityId;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Name;
 import com.raffasdev.neocustomers.domain.model.user.User;
 import com.raffasdev.neocustomers.domain.model.user.valueObject.Role;
-import com.raffasdev.neocustomers.infrastructure.web.rest.dto.response.RegisterUserResponse;
+import com.raffasdev.neocustomers.infrastructure.web.rest.dto.user.response.RegisterUserResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

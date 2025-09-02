@@ -1,5 +1,6 @@
 package com.raffasdev.neocustomers.domain.model.customer;
 
+import com.raffasdev.neocustomers.domain.model.customer.valueObject.BirthDate;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.CPF;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.Phone;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Email;
@@ -8,6 +9,8 @@ import com.raffasdev.neocustomers.domain.model.shared.valueObject.Name;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,6 +23,7 @@ class CustomerTest {
     private Email email;
     private CPF cpf;
     private Phone phone;
+    private BirthDate birthDate;
 
     @BeforeEach
     void setUp() {
@@ -28,9 +32,10 @@ class CustomerTest {
         email = Email.newEmail("teste@email.com");
         cpf = CPF.of("123.456.789-00");
         phone = Phone.of("11987654321");
+        birthDate = BirthDate.of(LocalDate.now().minusYears(20));
 
-        customer = Customer.create(id, name, email, cpf, phone);
-        reconstitutedCustomer = Customer.reconstitute(id, name, email, cpf, phone);
+        customer = Customer.create(id, name, email, cpf, phone, birthDate);
+        reconstitutedCustomer = Customer.reconstitute(id, name, email, cpf, phone, birthDate);
     }
 
     @Test
@@ -43,6 +48,7 @@ class CustomerTest {
         assertEquals(email.getValue(), customer.getEmail());
         assertEquals(cpf.getValue(), customer.getCPF());
         assertEquals(phone.getValue(), customer.getPhone());
+        assertEquals(birthDate.getValue(), customer.getBirthDate());
     }
 
     @Test
@@ -55,6 +61,8 @@ class CustomerTest {
         assertEquals(customer.getEmail(), reconstitutedCustomer.getEmail());
         assertEquals(customer.getCPF(), reconstitutedCustomer.getCPF());
         assertEquals(customer.getPhone(), reconstitutedCustomer.getPhone());
+        assertEquals(customer.getBirthDate(), reconstitutedCustomer.getBirthDate());
+        assertEquals(customer.getAge(), reconstitutedCustomer.getAge());
     }
 
     @Test
@@ -114,6 +122,20 @@ class CustomerTest {
     }
 
     @Test
+    @DisplayName("hasBirthdate should return true when Birthdate matches")
+    void hasBirthdate_returnsTrue_WhenBirthdateMatches() {
+
+        assertTrue(customer.hasBirthDate(birthDate));
+    }
+
+    @Test
+    @DisplayName("hasBirthdate should return false when Birthdate does not match")
+    void hasBirthdate_returnsFalse_WhenBirthdateDoesNotMatch() {
+
+        assertFalse(customer.hasBirthDate(BirthDate.of(LocalDate.now().minusYears(25))));
+    }
+
+    @Test
     @DisplayName("getters should return the correct primitive values always")
     void getters_returnCorrectPrimitiveValues_Always() {
 
@@ -121,6 +143,7 @@ class CustomerTest {
         assertEquals("teste@email.com", customer.getEmail());
         assertEquals("123.456.789-00", customer.getCPF());
         assertEquals("11987654321", customer.getPhone());
+        assertEquals(birthDate.getValue(), customer.getBirthDate());
     }
 
     @Test
@@ -132,7 +155,8 @@ class CustomerTest {
                 Name.newName("Another Name"),
                 Email.newEmail("another@email.com"),
                 CPF.of("111.222.333-44"),
-                Phone.of("9988887777")
+                Phone.of("9988887777"),
+                BirthDate.of(LocalDate.now().minusYears(20))
         );
 
         assertEquals(customer, anotherCustomer);
@@ -144,7 +168,7 @@ class CustomerTest {
     void equals_returnsFalse_WhenCustomerObjectsAreNotEqual() {
 
         Customer anotherCustomer = Customer.create(
-                EntityId.newId(), name, email, cpf, phone
+                EntityId.newId(), name, email, cpf, phone, birthDate
         );
 
         assertNotEquals(customer, anotherCustomer);

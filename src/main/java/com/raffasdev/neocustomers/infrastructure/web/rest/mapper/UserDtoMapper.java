@@ -2,7 +2,7 @@ package com.raffasdev.neocustomers.infrastructure.web.rest.mapper;
 
 import com.raffasdev.neocustomers.domain.model.user.User;
 import com.raffasdev.neocustomers.domain.model.user.valueObject.Role;
-import com.raffasdev.neocustomers.infrastructure.web.rest.dto.response.RegisterUserResponse;
+import com.raffasdev.neocustomers.infrastructure.web.rest.dto.user.response.RegisterUserResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;

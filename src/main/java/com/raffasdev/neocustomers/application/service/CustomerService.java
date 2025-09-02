@@ -5,6 +5,7 @@ import com.raffasdev.neocustomers.application.exception.CustomerNotFoundExceptio
 import com.raffasdev.neocustomers.application.exception.EmailAlreadyExistsException;
 import com.raffasdev.neocustomers.domain.model.customer.Customer;
 import com.raffasdev.neocustomers.domain.model.customer.ICustomerService;
+import com.raffasdev.neocustomers.domain.model.customer.valueObject.BirthDate;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.CPF;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.Phone;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Email;
@@ -17,6 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Service
@@ -27,7 +29,7 @@ public class CustomerService implements ICustomerService {
 
     @Transactional
     @Override
-    public Customer save(String name, String email, String cpf, String phone) {
+    public Customer save(String name, String email, String cpf, String phone, LocalDate birthDate) {
 
         if (customerRepository.existsByEmail(email)) {
             throw new EmailAlreadyExistsException(email);
@@ -42,7 +44,8 @@ public class CustomerService implements ICustomerService {
                 Name.newName(name),
                 Email.newEmail(email),
                 CPF.newCPF(cpf),
-                Phone.newPhone(phone)
+                Phone.newPhone(phone),
+                BirthDate.newBirthDate(birthDate)
         );
 
         return customerRepository.save(customer);
@@ -69,7 +72,7 @@ public class CustomerService implements ICustomerService {
 
     @Transactional
     @Override
-    public void updateById(UUID id, String name, String email, String phone) {
+    public void updateById(UUID id, String name, String email, String phone, LocalDate birthDate) {
 
         Customer currentCustomer = this.findById(id);
 
@@ -78,6 +81,9 @@ public class CustomerService implements ICustomerService {
 
         Phone phoneToUpdate = (phone != null && !phone.isBlank()) ?
                 Phone.newPhone(phone) : Phone.newPhone(currentCustomer.getPhone());
+
+        BirthDate birthDateToUpdate = (birthDate != null) ?
+                BirthDate.newBirthDate(birthDate) : BirthDate.newBirthDate(currentCustomer.getBirthDate());
 
         Email emailToUpdate = Email.newEmail(currentCustomer.getEmail());
         if (email != null && !email.isBlank() && !currentCustomer.getEmail().equals(email)) {
@@ -95,7 +101,8 @@ public class CustomerService implements ICustomerService {
                 nameToUpdate,
                 emailToUpdate,
                 CPF.newCPF(currentCustomer.getCPF()),
-                phoneToUpdate
+                phoneToUpdate,
+                birthDateToUpdate
         );
 
         customerRepository.save(customerUpdated);
