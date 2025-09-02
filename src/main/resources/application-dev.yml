@@ -9,3 +9,9 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  jwt:
+    secret:
+      key: ${JWT_SECRET_KEY}
+    expiration:
+      minutes: ${JWT_EXPIRATION_MINUTES}
