@@ -11,4 +11,4 @@ spring:
     secret:
       key: ${JWT_SECRET_KEY}
     expiration:
-      minutes: ${JWT_EXPIRATION_MINUTES
+      minutes: ${JWT_EXPIRATION_MINUTES}
