@@ -8,6 +8,19 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@OpenAPIDefinition(
+        info = @Info(
+                title = "NeoCustomers - Cadastro de Clientes API",
+                version = "1.0",
+                description = "API REST para o desafio técnico da NeoApp, focada no gerenciamento com autenticação JWT."
+        )
+)
+@SecurityScheme(
+        name = "bearerAuth",
+        type = SecuritySchemeType.HTTP,
+        scheme = "bearer",
+        bearerFormat = "JWT"
+)
 @SpringBootApplication
 public class NeoCustomersApplication {
 
