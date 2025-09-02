@@ -1,11 +1,9 @@
 services:
   db:
+    image: postgres:16-alpine
     container_name: neoCustomers_pg
-    image: postgres
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - ./.env.dev
     ports:
       - "5432:5432"
     restart: always
@@ -13,6 +11,27 @@ services:
       - postgres-data:/var/lib/postgresql/data
     networks:
       - neoCustomers_network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  api:
+    build: .
+    container_name: neocustomers-api-dev
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    restart: always
+    env_file:
+      - ./.env.dev
+    networks:
+      - neoCustomers_network
+
 
 volumes:
   postgres-data:
