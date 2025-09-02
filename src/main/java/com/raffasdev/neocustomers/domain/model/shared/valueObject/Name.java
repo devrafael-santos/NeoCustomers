@@ -1,6 +1,6 @@
 package com.raffasdev.neocustomers.domain.model.shared.valueObject;
 
-import com.raffasdev.neocustomers.domain.exception.InvalidUsernameException;
+import com.raffasdev.neocustomers.domain.exception.InvalidNameException;
 
 import java.util.Objects;
 
@@ -27,10 +27,10 @@ public class Name extends ValueObject {
 
     private void validate() {
         if (name == null || name.isEmpty()) {
-            throw new InvalidUsernameException(name);
+            throw new InvalidNameException(name);
         }
         if (name.length() < 2 || name.length() > 15) {
-            throw new InvalidUsernameException(name);
+            throw new InvalidNameException(name);
         }
     }
 
