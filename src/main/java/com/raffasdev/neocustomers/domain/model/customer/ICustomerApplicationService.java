@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public interface ICustomerService {
+public interface ICustomerApplicationService {
 
     Customer save(String name, String email, String cpf, String phone, LocalDate birthDate);
 

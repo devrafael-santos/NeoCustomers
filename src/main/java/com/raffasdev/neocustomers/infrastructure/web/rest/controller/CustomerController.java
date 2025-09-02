@@ -1,7 +1,7 @@
 package com.raffasdev.neocustomers.infrastructure.web.rest.controller;
 
 import com.raffasdev.neocustomers.domain.model.customer.Customer;
-import com.raffasdev.neocustomers.domain.model.customer.ICustomerService;
+import com.raffasdev.neocustomers.domain.model.customer.ICustomerApplicationService;
 import com.raffasdev.neocustomers.infrastructure.web.rest.dto.customer.request.RegisterCustomerRequest;
 import com.raffasdev.neocustomers.infrastructure.web.rest.dto.customer.request.UpdateCustomerRequest;
 import com.raffasdev.neocustomers.infrastructure.web.rest.dto.customer.response.GetCustomerResponse;
@@ -29,7 +29,7 @@ import java.util.UUID;
 @SecurityRequirement(name = "bearerAuth")
 public class CustomerController {
 
-    private final ICustomerService customerService;
+    private final ICustomerApplicationService customerService;
 
     private final CustomerDtoMapper customerDtoMapper;
 
