@@ -1,6 +1,7 @@
 package com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.customer;
 
 import com.raffasdev.neocustomers.domain.model.customer.Customer;
+import com.raffasdev.neocustomers.domain.model.customer.valueObject.BirthDate;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.CPF;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.Phone;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Email;
@@ -18,6 +19,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -49,7 +51,8 @@ class CustomerRepositoryTest {
                 Name.newName("Test"),
                 Email.newEmail("test@test.com"),
                 CPF.of("123.456.789-00"),
-                Phone.of("11999998888")
+                Phone.of("11999998888"),
+                BirthDate.of(LocalDate.now().minusYears(20))
         );
 
         CustomerEntity customerEntity = new CustomerEntity();
@@ -59,7 +62,8 @@ class CustomerRepositoryTest {
                 Name.newName("Test"),
                 Email.newEmail("test@test.com"),
                 CPF.of("123.456.789-00"),
-                Phone.of("11999998888")
+                Phone.of("11999998888"),
+                BirthDate.of(LocalDate.now().minusYears(20))
         );
 
         given(customerMapperMock.toEntity(customerToSave)).willReturn(customerEntity);
@@ -88,7 +92,8 @@ class CustomerRepositoryTest {
                 Name.newName("Test"),
                 Email.newEmail("test@test.com"),
                 CPF.of("123.456.789-00"),
-                Phone.of("11999998888")
+                Phone.of("11999998888"),
+                BirthDate.of(LocalDate.now().minusYears(20))
         );
 
         Page<Customer> expectedDomainPage = new PageImpl<>(List.of(customerDomain));
@@ -115,7 +120,8 @@ class CustomerRepositoryTest {
                 Name.newName("Test"),
                 Email.newEmail("test@test.com"),
                 CPF.of("123.456.789-00"),
-                Phone.of("11999998888")
+                Phone.of("11999998888"),
+                BirthDate.of(LocalDate.now().minusYears(20))
         ));
 
         given(jpaRepositoryMock.findById(customerId)).willReturn(entityOptional);
@@ -168,7 +174,8 @@ class CustomerRepositoryTest {
                 Name.newName("test"),
                 Email.newEmail("teste@gmail.com"),
                 CPF.of("123.456.789-00"),
-                Phone.of("11999998888")
+                Phone.of("11999998888"),
+                BirthDate.of(LocalDate.now().minusYears(20))
         );
 
         given(jpaRepositoryMock.findByNameIgnoreCaseContaining(nameFragment, pageable)).willReturn(entityPage);

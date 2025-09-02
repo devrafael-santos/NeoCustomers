@@ -1,6 +1,6 @@
 package com.raffasdev.neocustomers.infrastructure.web.rest.validators.password;
 
-import com.raffasdev.neocustomers.infrastructure.web.rest.dto.request.RegisterUserRequest;
+import com.raffasdev.neocustomers.infrastructure.web.rest.dto.user.request.RegisterUserRequest;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

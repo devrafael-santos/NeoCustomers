@@ -1,6 +1,7 @@
 package com.raffasdev.neocustomers.infrastructure.persistence.jpa.mapper;
 
 import com.raffasdev.neocustomers.domain.model.customer.Customer;
+import com.raffasdev.neocustomers.domain.model.customer.valueObject.BirthDate;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.CPF;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.Phone;
 import com.raffasdev.neocustomers.domain.model.shared.valueObject.Email;
@@ -21,7 +22,8 @@ public final class CustomerMapper {
                 customer.getName(),
                 customer.getEmail(),
                 customer.getCPF(),
-                customer.getPhone()
+                customer.getPhone(),
+                customer.getBirthDate()
         );
     }
 
@@ -35,7 +37,8 @@ public final class CustomerMapper {
                 Name.of(entity.getName()),
                 Email.of(entity.getEmail()),
                 CPF.of(entity.getCpf()),
-                Phone.of(entity.getPhone())
+                Phone.of(entity.getPhone()),
+                BirthDate.of(entity.getBirthDate())
         );
     }
 

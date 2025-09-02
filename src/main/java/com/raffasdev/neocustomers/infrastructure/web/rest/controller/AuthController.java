@@ -2,10 +2,10 @@ package com.raffasdev.neocustomers.infrastructure.web.rest.controller;
 
 import com.raffasdev.neocustomers.domain.model.user.IAuthService;
 import com.raffasdev.neocustomers.domain.model.user.User;
-import com.raffasdev.neocustomers.infrastructure.web.rest.dto.request.LoginUserRequest;
-import com.raffasdev.neocustomers.infrastructure.web.rest.dto.request.RegisterUserRequest;
-import com.raffasdev.neocustomers.infrastructure.web.rest.dto.response.LoginUserResponse;
-import com.raffasdev.neocustomers.infrastructure.web.rest.dto.response.RegisterUserResponse;
+import com.raffasdev.neocustomers.infrastructure.web.rest.dto.user.request.LoginUserRequest;
+import com.raffasdev.neocustomers.infrastructure.web.rest.dto.user.request.RegisterUserRequest;
+import com.raffasdev.neocustomers.infrastructure.web.rest.dto.user.response.LoginUserResponse;
+import com.raffasdev.neocustomers.infrastructure.web.rest.dto.user.response.RegisterUserResponse;
 import com.raffasdev.neocustomers.infrastructure.web.rest.mapper.UserDtoMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
