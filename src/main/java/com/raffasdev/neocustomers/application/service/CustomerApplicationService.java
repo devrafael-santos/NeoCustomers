@@ -4,7 +4,7 @@ import com.raffasdev.neocustomers.application.exception.CPFAlreadyExistsExceptio
 import com.raffasdev.neocustomers.application.exception.CustomerNotFoundException;
 import com.raffasdev.neocustomers.application.exception.EmailAlreadyExistsException;
 import com.raffasdev.neocustomers.domain.model.customer.Customer;
-import com.raffasdev.neocustomers.domain.model.customer.ICustomerService;
+import com.raffasdev.neocustomers.domain.model.customer.ICustomerApplicationService;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.BirthDate;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.CPF;
 import com.raffasdev.neocustomers.domain.model.customer.valueObject.Phone;
@@ -23,7 +23,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class CustomerApplicationService implements ICustomerService {
+public class CustomerApplicationService implements ICustomerApplicationService {
 
     private final CustomerRepository customerRepository;
 

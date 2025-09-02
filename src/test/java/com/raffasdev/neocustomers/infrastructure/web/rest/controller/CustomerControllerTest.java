@@ -1,7 +1,7 @@
 package com.raffasdev.neocustomers.infrastructure.web.rest.controller;
 
 import com.raffasdev.neocustomers.domain.model.customer.Customer;
-import com.raffasdev.neocustomers.domain.model.customer.ICustomerService;
+import com.raffasdev.neocustomers.domain.model.customer.ICustomerApplicationService;
 import com.raffasdev.neocustomers.infrastructure.web.rest.dto.customer.request.RegisterCustomerRequest;
 import com.raffasdev.neocustomers.infrastructure.web.rest.dto.customer.request.UpdateCustomerRequest;
 import com.raffasdev.neocustomers.infrastructure.web.rest.dto.customer.response.GetCustomerResponse;
@@ -33,7 +33,7 @@ import static org.mockito.Mockito.*;
 class CustomerControllerTest {
 
     @Mock
-    private ICustomerService customerServiceMock;
+    private ICustomerApplicationService customerServiceMock;
 
     @Mock
     private CustomerDtoMapper customerDtoMapperMock;
