@@ -1,7 +1,7 @@
 package com.raffasdev.neocustomers.infrastructure.security;
 
 import com.raffasdev.neocustomers.infrastructure.persistence.jpa.entity.UserEntity;
-import com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.IUserJpaRepository;
+import com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.user.IUserJpaRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,9 +31,15 @@ public class SecurityFilter extends OncePerRequestFilter {
         var email = this.tokenService.validateToken(token);
 
         if (email != null) {
+
             UserEntity userEntity = userRepository.findByEmail(email)
                     .orElseThrow(() -> new RuntimeException("User not found"));
-            var authentication = new UsernamePasswordAuthenticationToken(userEntity, null, null);
+
+            var authentication = new UsernamePasswordAuthenticationToken(
+                    userEntity,
+                    null,
+                    userEntity.getAuthorities());
+            
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
 

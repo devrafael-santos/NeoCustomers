@@ -1,6 +1,6 @@
 package com.raffasdev.neocustomers.infrastructure.web.rest.validators.password;
 
-import com.raffasdev.neocustomers.infrastructure.web.rest.dto.request.RegisterUserRequest;
+import com.raffasdev.neocustomers.infrastructure.web.rest.dto.user.request.RegisterUserRequest;
 import jakarta.validation.ConstraintValidatorContext;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

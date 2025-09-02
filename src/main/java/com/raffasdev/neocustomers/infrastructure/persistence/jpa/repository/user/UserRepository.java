@@ -1,4 +1,4 @@
-package com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository;
+package com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.user;
 
 import com.raffasdev.neocustomers.domain.model.user.IUserRepository;
 import com.raffasdev.neocustomers.domain.model.user.User;

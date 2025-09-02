@@ -1,6 +1,6 @@
 package com.raffasdev.neocustomers.domain.model.shared.valueObject;
 
-import com.raffasdev.neocustomers.domain.exception.InvalidUsernameException;
+import com.raffasdev.neocustomers.domain.exception.InvalidNameException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -37,7 +37,7 @@ class NameTest {
     @ValueSource(strings = {" ", "a", "usernameTooooLong"})
     @DisplayName("newUsername should throw InvalidUsernameException when invalid values are provided")
     void newUsername_ThrowsInvalidUsernameException_WhenInvalidValuesAreProvided(String invalidUsername) {
-        assertThrows(InvalidUsernameException.class, () -> Name.newName(invalidUsername));
+        assertThrows(InvalidNameException.class, () -> Name.newName(invalidUsername));
     }
 
     @Test

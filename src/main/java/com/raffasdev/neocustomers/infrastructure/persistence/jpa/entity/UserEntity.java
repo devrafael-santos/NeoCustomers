@@ -40,16 +40,16 @@ public class UserEntity implements UserDetails {
     public UserEntity() {
     }
 
-    private UserEntity(UUID userId, String username, String email, Set<Role> roles, String password) {
+    private UserEntity(UUID userId, String name, String email, Set<Role> roles, String password) {
         this.userId = userId;
-        this.name = username;
+        this.name = name;
         this.email = email;
         this.roles = roles;
         this.password = password;
     }
 
-    public static UserEntity create(UUID userId, String username, String email, Set<Role> roles, String password) {
-        return new UserEntity(userId, username, email, roles, password);
+    public static UserEntity create(UUID userId, String name, String email, Set<Role> roles, String password) {
+        return new UserEntity(userId, name, email, roles, password);
     }
 
     @Override

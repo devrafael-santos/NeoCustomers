@@ -1,6 +1,6 @@
 package com.raffasdev.neocustomers.infrastructure.security;
 
-import com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.IUserJpaRepository;
+import com.raffasdev.neocustomers.infrastructure.persistence.jpa.repository.user.IUserJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
