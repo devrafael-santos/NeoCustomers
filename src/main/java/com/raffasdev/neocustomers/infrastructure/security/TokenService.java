@@ -15,10 +15,10 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService implements TokenGenerator {
 
-    @Value("${JWT_SECRET_KEY}")
+    @Value("${spring.jwt.secret.key}")
     private String secretKey;
 
-    @Value("${JWT_EXPIRATION_MINUTES}")
+    @Value("${spring.jwt.expiration.minutes}")
     private long expirationMinutes;
 
     @Override
