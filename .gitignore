@@ -36,3 +36,5 @@ build/
 .env
 .env.dev
 .env.prod
+.test
+
